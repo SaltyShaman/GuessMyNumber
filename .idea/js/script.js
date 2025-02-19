@@ -66,6 +66,7 @@ function guessNumber() {
         lblMessage.textContent = "You won!";
         highScore++;
         lblHighscore.textContent = highScore;
+        pbGuess.disabled = true;
     } else if (guess > randomNumber) {
         lblMessage.textContent = "Too high!";
         score--;
