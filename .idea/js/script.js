@@ -27,6 +27,18 @@ const lblHighscore = document.querySelector(".highscore");
 let highScore = 0;
 lblHighscore.textContent = highScore;
 
+function playAgain() {
+    score = 20;
+    lblScore.textContent = score; // reset score to 20
+
+    if (score > highScore) {
+        highScore = score;
+        lblHighscore.textContent = highScore;
+    }
+}
+
+pbAgain.addEventListener("click", playAgain);
+
 function generateRandomNumber() {
     randomNumber = Math.trunc(Math.random() * 20) + 1; // +1 is in case it hits 0
     console.log("Generated number:", randomNumber); // Debugging log
