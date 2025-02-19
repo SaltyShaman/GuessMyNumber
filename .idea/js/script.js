@@ -23,7 +23,9 @@ let randomNumber = 0; // 0 is to reset it when changing
 let score = 20; //standard score is 20
 lblScore.textContent = score;
 
-
+const lblHighscore = document.querySelector(".highscore");
+let highScore = 0;
+lblHighscore.textContent = highScore;
 
 function generateRandomNumber() {
     randomNumber = Math.trunc(Math.random() * 20) + 1; // +1 is in case it hits 0
@@ -48,6 +50,8 @@ function guessNumber() {
 
     if (guess === randomNumber) {
         lblMessage.textContent = "You won!";
+        highScore++;
+        lblHighscore.textContent = highScore;
     } else if (guess > randomNumber) {
         lblMessage.textContent = "Too high!";
         score--;
