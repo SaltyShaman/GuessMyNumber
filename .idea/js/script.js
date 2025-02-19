@@ -20,6 +20,11 @@ const pbGuess = document.querySelector(".check");
 
 let randomNumber = 0; // 0 is to reset it when changing
 
+let score = 20; //standard score is 20
+lblScore.textContent = score;
+
+
+
 function generateRandomNumber() {
     randomNumber = Math.trunc(Math.random() * 20) + 1; // +1 is in case it hits 0
     console.log("Generated number:", randomNumber); // Debugging log
@@ -32,7 +37,8 @@ pbAgain.addEventListener("click", generateRandomNumber);
 
 function guessNumber() {
     if (!inpGuess.value.trim() || isNaN(inpGuess.value)) {
-        lblMessage.textContent = "Please enter a valid number!";
+        lblMessage.textContent = "Please enter a number between 1 and 20";
+        inpGuess.value = "";
         return;
     }
 
@@ -44,8 +50,13 @@ function guessNumber() {
         lblMessage.textContent = "You won!";
     } else if (guess > randomNumber) {
         lblMessage.textContent = "Too high!";
+        score--;
+        lblScore.textContent = score;
+
     } else {
         lblMessage.textContent = "Too low!"; //else statement works as guess < randomNumber
+        score--;
+        lblScore.textContent = score;
     }
 }
 
