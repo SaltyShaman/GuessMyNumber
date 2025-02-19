@@ -35,6 +35,7 @@ function playAgain() {
         highScore = score;
         lblHighscore.textContent = highScore;
     }
+    pbGuess.disabled = false;
 }
 
 pbAgain.addEventListener("click", function () {
