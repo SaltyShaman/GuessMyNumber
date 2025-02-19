@@ -68,6 +68,7 @@ function guessNumber() {
         highScore++;
         lblHighscore.textContent = highScore;
         pbGuess.disabled = true;
+        playFanfare();
     } else if (guess > randomNumber) {
         lblMessage.textContent = "Too high!";
         score--;
