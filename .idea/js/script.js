@@ -37,7 +37,10 @@ function playAgain() {
     }
 }
 
-pbAgain.addEventListener("click", playAgain);
+pbAgain.addEventListener("click", function () {
+    playAgain();
+    generateRandomNumber();
+});
 
 function generateRandomNumber() {
     randomNumber = Math.trunc(Math.random() * 20) + 1; // +1 is in case it hits 0
@@ -47,7 +50,6 @@ function generateRandomNumber() {
 // Call the function once to generate a number when the page loads
 generateRandomNumber();
 
-pbAgain.addEventListener("click", generateRandomNumber);
 
 function guessNumber() {
     if (!inpGuess.value.trim() || isNaN(inpGuess.value)) {
